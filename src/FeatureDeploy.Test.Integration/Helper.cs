@@ -4,7 +4,7 @@ using FeatureDeploy.BuildServer;
 using FeatureDeploy.Deploy;
 using FeatureDeploy.VCS;
 
-namespace FeatureDeploy.Test
+namespace FeatureDeploy.Test.Integration
 {
     public static class Helper
     {

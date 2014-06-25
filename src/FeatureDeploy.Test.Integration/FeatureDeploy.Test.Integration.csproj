@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC4EEFDF-17D4-4507-A761-A0777E1B0880}</ProjectGuid>
+    <ProjectGuid>{2891EBA1-AE2A-4732-8BB3-AA727E6EC261}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FeatureDeploy.Test</RootNamespace>
-    <AssemblyName>FeatureDeploy.Test</AssemblyName>
+    <RootNamespace>FeatureDeploy.Test.Integration</RootNamespace>
+    <AssemblyName>FeatureDeploy.Test.Integration</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,9 +50,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helper.cs" />
+    <Compile Include="VCS\GitHubTest.cs" />
+    <Compile Include="ProjectTest.cs" />
+    <Compile Include="BuildServer\TeamCityTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FeatureDeploy\FeatureDeploy.csproj">
       <Project>{379c61b3-9fae-4f57-a12d-bfbe0f2b49ac}</Project>

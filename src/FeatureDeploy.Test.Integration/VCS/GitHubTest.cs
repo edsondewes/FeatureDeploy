@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FeatureDeploy.Test.Integration
+namespace FeatureDeploy.Test.Integration.VCS
 {
     [TestClass]
     public class GitHubTest
