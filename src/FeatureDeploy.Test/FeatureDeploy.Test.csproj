@@ -50,9 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ProjectLoaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Fixture\project.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FeatureDeploy\FeatureDeploy.csproj">
       <Project>{379c61b3-9fae-4f57-a12d-bfbe0f2b49ac}</Project>
