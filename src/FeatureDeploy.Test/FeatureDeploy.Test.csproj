@@ -50,6 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Fixture\TestResolver.cs" />
+    <Compile Include="Modifiers\StringResolverTest.cs" />
+    <Compile Include="Modifiers\VariableResolvers\EnvironmentVariableResolverTest.cs" />
     <Compile Include="ProjectLoaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
