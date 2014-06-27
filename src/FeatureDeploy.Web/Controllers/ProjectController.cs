@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -45,6 +46,18 @@ namespace FeatureDeploy.Web.Controllers
             var features = await project.GetFeatures();
 
             return features;
+        }
+
+        /// <summary>
+        /// Deploy a build
+        /// </summary>
+        /// <param name="buildId">Build Id</param>
+        /// <returns>Async Task</returns>
+        [HttpGet]
+        public async Task Deploy(string projectName, string buildId)
+        {
+            var project = this.projects.Value.FirstOrDefault(p => p.Name == projectName);
+            await project.Deploy(buildId);
         }
     }
 }
