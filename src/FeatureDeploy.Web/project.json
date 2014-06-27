@@ -1,0 +1,25 @@
+﻿{
+    Name: 'Feature Deploy',
+    BuildServer: {
+        Type: 'FeatureDeploy.BuildServer.TeamCity',
+        Name: 'TeamCity',
+        ConfigurationId: 'FeatureDeploy_Main',
+        Url: 'localhost:8081',
+        Username: 'admin',
+        Password: '123456'
+    },
+    DeployMethod: {
+        Type: 'FeatureDeploy.Deploy.CommandLine',
+        Name: 'IIS Deploy',
+        Command: 'DeployPackage\FeatureDeploy.Web.deploy.cmd',
+        Arguments: '/y /M:https://localhost:8172/MsDeploy.axd /u:edsondewes /p:123456 /A:Basic -allowUntrusted'
+    },
+    VCS: {
+        Type: 'FeatureDeploy.VCS.GitHub',
+        Name: 'GitHub',
+        ProjectOwner: 'edsondewes',
+        ProjectName:  'FeatureDeploy',
+        Username: 'edsondewes',
+        Password: '123456'
+    }
+}
