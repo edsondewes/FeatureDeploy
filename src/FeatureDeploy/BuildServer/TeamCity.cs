@@ -45,6 +45,11 @@ namespace FeatureDeploy.BuildServer
         public string Password { get; set; }
 
         /// <summary>
+        /// Download folder used to store artifacts
+        /// </summary>
+        public string DownloadFolder { get; set; }
+
+        /// <summary>
         /// Default construtor
         /// </summary>
         public TeamCity()
@@ -64,12 +69,12 @@ namespace FeatureDeploy.BuildServer
         /// <returns>Extracted files directory path</returns>
         public async Task<DirectoryInfo> DownloadArtifacts(string buildId)
         {
-            string directoryPath = null;
+            var directoryPath = this.DownloadFolder ?? string.Empty; // TODO: validate if ends with \
             await Task.Factory.StartNew(() =>
             {
                 this.client.Value.Artifacts.DownloadArtifactsByBuildId(buildId, download =>
                 {
-                    directoryPath = download.Substring(0, download.LastIndexOf('.'));
+                    directoryPath += download.Substring(0, download.LastIndexOf('.'));
                     ZipFile.ExtractToDirectory(download, directoryPath);
                 });
             });
