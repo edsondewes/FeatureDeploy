@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -12,8 +11,14 @@ namespace FeatureDeploy.Web.Controllers
     /// </summary>
     public class ProjectController : ApiController
     {
+        /// <summary>
+        /// Projects list
+        /// </summary>
         public Lazy<IList<Project>> projects;
 
+        /// <summary>
+        /// Initialize ProjectController
+        /// </summary>
         public ProjectController()
         {
             this.projects = new Lazy<IList<Project>>(() =>
@@ -45,7 +50,7 @@ namespace FeatureDeploy.Web.Controllers
             var project = this.projects.Value.FirstOrDefault(p => p.Name == projectName);
             var features = await project.GetFeatures();
 
-            return features;
+            return features.OrderBy(f => f.Branch);
         }
 
         /// <summary>

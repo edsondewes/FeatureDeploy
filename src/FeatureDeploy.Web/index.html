@@ -1,9 +1,54 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <title></title>
+    <title>Feature Deploy</title>
+    <link rel="stylesheet" href="style/site.css" />
 </head>
 <body>
+    <section id="projects"></section>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $.getJSON('api/project/list', function (data) {
+                if (data && data.length > 0) {
+                    var projects = $('#projects');
+                    $.each(data, function (i, title) {
+                        var article = $('<article />').addClass('project');
+                        article.append($('<h1 />').html(title));
 
+                        $.getJSON('api/project/features', { projectName: title }, function (features) {
+                            var list = $('<ul />');
+                            $.each(features, function (f, feature) {
+                                var li, deploy;
+                                li = $('<li />').html(feature.Branch);
+                                deploy = $('<button />')
+                                    .data('build', feature.Id)
+                                    .data('project', title)
+                                    .html('Deploy')
+                                    .addClass('deploy');
+
+                                deploy.on('click', function () {
+                                    var btn = $(this),
+                                        buildId = btn.data('build'),
+                                        projectName = btn.data('project');
+
+                                    $.get('api/project/deploy', { projectName: projectName, buildId: buildId }, function() {
+                                        alert('Deploy success');
+                                    });
+                                });
+
+                                li.prepend(deploy);
+                                list.append(li);
+                            });
+
+                            article.append(list);
+                            projects.append(article);
+                        });
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
