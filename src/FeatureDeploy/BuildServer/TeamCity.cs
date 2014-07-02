@@ -102,6 +102,7 @@ namespace FeatureDeploy.BuildServer
                         {
                             Id = build.Id,
                             Branch = branchName,
+                            Number = build.Number,
                             Status = build.Status == "SUCCESS" ? BuildStatus.Success : BuildStatus.Fail
                         });
                     }
