@@ -2,53 +2,43 @@
 <html>
 <head>
     <title>Feature Deploy</title>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style/site.css" />
 </head>
 <body>
-    <section id="projects"></section>
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        $(function () {
-            $.getJSON('api/project/list', function (data) {
-                if (data && data.length > 0) {
-                    var projects = $('#projects');
-                    $.each(data, function (i, title) {
-                        var article = $('<article />').addClass('project');
-                        article.append($('<h1 />').html(title));
-
-                        $.getJSON('api/project/features', { projectName: title }, function (features) {
-                            var list = $('<ul />');
-                            $.each(features, function (f, feature) {
-                                var li, deploy;
-                                li = $('<li />').html(feature.Branch);
-                                deploy = $('<button />')
-                                    .data('build', feature.Id)
-                                    .data('project', title)
-                                    .html('Deploy')
-                                    .addClass('deploy');
-
-                                deploy.on('click', function () {
-                                    var btn = $(this),
-                                        buildId = btn.data('build'),
-                                        projectName = btn.data('project');
-
-                                    $.get('api/project/deploy', { projectName: projectName, buildId: buildId }, function() {
-                                        alert('Deploy success');
-                                    });
-                                });
-
-                                li.prepend(deploy);
-                                list.append(li);
-                            });
-
-                            article.append(list);
-                            projects.append(article);
-                        });
-                    });
-                }
-            });
-        });
+    <script id="featuresList" type="x-tmpl-mustache">
+        <article class="project">
+            <h1>{{ name }}</h1>
+            <div class="features">
+                <ul>
+                    {{#features}}
+                    <li class="feature" data-build="{{ data.Id }}">
+                        <button class="action deploy">Deploy</button>
+                        {{ data.Branch }}
+                        <span class="status {{ statusClass }}">{{ data.Number }}</span>
+                    </li>
+                    {{/features}}
+                </ul>
+            </div>
+        </article>
     </script>
+
+    <script id="gifLoader" type="x-tmpl-mustache">
+        <div class="loading"></div>
+    </script>
+
+    <script id="lineMessage" type="x-tmpl-mustache">
+        <div class="alert">
+            <a href="#" class="close">Close</a>
+            <span class="text text-success">Deploy succeded</span>
+            <span class="text text-fail">Deploy failed</span>
+        </div>
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/project.js"></script>
 </body>
 </html>

@@ -1,31 +1,123 @@
 ﻿body {
-    font: 12px Arial, Helvetica, sans-serif;
-    max-width: 500px;
+    background: #3A3A3A;
+    font: 12px 'Droid Sans', sans-serif;
+    max-width: 600px;
     margin: 0 auto;
     padding: 5px 7px;
     text-align: center;
 }
 
 .project {
+    background: #F4F4F4;
+    margin: 15px 0;
     text-align: left;
 }
 
 .project h1 {
-    border-bottom: 1px solid #000;
-    margin-bottom: 5px;
+    border-bottom: 1px solid #3A3A3A;
+    font-size: 15px;
+    margin: 0 0 5px;
+    padding: 10px 15px;
 }
 
-.project ul {
+.features {
+    padding: 15px;
+}
+
+.features ul {
+    background: #fff;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.project li {
-    height: 30px;
+.features li {
+    border-bottom: 1px solid #F7F7F7;
+    line-height: 26px;
+    padding: 5px 10px;
+    position: relative;
 }
 
-.project .deploy {
+.features li:last-child {
+    border-bottom: 0;
+}
+
+.features .status {
+    border-radius: 3px;
+    font-size: 10px;
+    margin-left: 5px;
+    padding: 3px 5px;
+}
+
+.status.fail {
+    background: #FA5858;
+}
+.status.success {
+    background: #89FB8E;
+}
+
+.features .action {
+    background: #2489C1;
+    border: 1px solid #77B6D6;
+    color: #fff;
+    cursor: pointer;
     float: right;
+    font-size: 10px;
+    margin-left: 2px;
+    min-width: 80px;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.features .loading {
+    background: url(loader.gif) no-repeat;
+    float: right;
+    height: 25px;
     width: 80px;
+}
+
+.alert {
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.alert .close {
+    float:right;
+    margin-top: 5px;
+    width: 50px;
+}
+
+.alert .text {
+    display: inline-block;
+    margin: 5px 0 0 32px;
+}
+
+.alert.fail {
+    background: #FA5858 url(fail.png) no-repeat 7px 10px;
+}
+.alert.fail .close {
+    color: #8A1204;
+}
+.alert.fail .text-success {
+    display: none;
+}
+.alert.fail .text-fail {
+    display: block;
+}
+
+.alert.success {
+    background: #D4E9C0 url(ok.png) no-repeat 7px 10px;
+}
+.alert.success .close {
+    color: green;
+}
+.alert.success .text-success {
+    display: block;
+}
+.alert.success .text-fail {
+    display: none;
 }
