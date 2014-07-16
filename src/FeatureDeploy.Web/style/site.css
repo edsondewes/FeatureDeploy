@@ -7,6 +7,17 @@
     text-align: center;
 }
 
+.page-loader {
+    background: url(page-loader.gif) no-repeat;
+    height: 48px;
+    margin-left: -24px;
+    margin-top: -24px;
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    width: 48px;
+}
+
 .project {
     background: #F4F4F4;
     margin: 15px 0;
@@ -70,7 +81,7 @@
 }
 
 .features .loading {
-    background: url(loader.gif) no-repeat;
+    background: url(project-loader.gif) no-repeat;
     float: right;
     height: 25px;
     width: 80px;

@@ -79,7 +79,8 @@
     <Content Include="js\project.js" />
     <Content Include="js\templates.js" />
     <Content Include="style\fail.png" />
-    <Content Include="style\loader.gif" />
+    <Content Include="style\page-loader.gif" />
+    <Content Include="style\project-loader.gif" />
     <Content Include="style\ok.png" />
     <Content Include="style\site.css" />
     <Content Include="Web.config" />
@@ -106,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FeatureDeploy\FeatureDeploy.csproj">

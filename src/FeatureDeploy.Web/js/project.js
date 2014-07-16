@@ -64,12 +64,14 @@
     };
 
     $(function () {
-        var body = $('body');
+        var body = $('body'),
+            pageLoader = $('.page-loader');
 
         FD.controller.listProjects(function (projects) {
             $.each(projects, function (x, p) {
                 var project = new Project(p);
                 project.load(function () {
+                    pageLoader.remove();
                     this.render(body);
                 });
             });
