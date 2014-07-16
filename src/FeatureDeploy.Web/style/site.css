@@ -7,6 +7,11 @@
     text-align: center;
 }
 
+h1 a {
+    color: #000;
+    text-decoration: none;
+}
+
 .page-loader {
     background: url(page-loader.gif) no-repeat;
     height: 48px;

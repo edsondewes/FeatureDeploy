@@ -15,6 +15,11 @@ namespace FeatureDeploy
         public string Name { get; set; }
 
         /// <summary>
+        /// Project Url
+        /// </summary>
+        public string Url { get; set; }
+
+        /// <summary>
         /// Build server definition
         /// </summary>
         public IBuildServer BuildServer { get; set; }

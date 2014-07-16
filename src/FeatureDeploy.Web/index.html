@@ -8,7 +8,14 @@
 <body>
     <script id="featuresList" type="x-tmpl-mustache">
         <article class="project">
-            <h1>{{ name }}</h1>
+            <h1>
+                {{#url}}
+                    <a href="{{ url }}">{{ name }}</a>
+                {{/url}}
+                {{^url}}
+                {{ name }}
+                {{/url}}
+            </h1>
             <div class="features">
                 <ul>
                     {{#features}}

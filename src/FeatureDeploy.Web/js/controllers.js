@@ -29,7 +29,13 @@
     function fakeController() {
         return {
             listProjects: function (callback) {
-                callback(['Project 1', 'Project 2']);
+                callback([{
+                    Name: 'Project 1',
+                    Url: 'http://www.site.com'
+                }, {
+                    Name: 'Project 2',
+                    Url: undefined
+                }]);
             },
             features: function (projectName, callback) {
                 var builds = [{

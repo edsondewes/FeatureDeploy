@@ -3,8 +3,9 @@
 
     var FD = window.FD;
 
-    function Project(name) {
-        this.name = name;
+    function Project(data) {
+        this.name = data.Name;
+        this.url = data.Url;
         this.features = [];
     }
 

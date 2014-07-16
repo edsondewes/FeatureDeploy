@@ -35,9 +35,9 @@ namespace FeatureDeploy.Web.Controllers
         /// </summary>
         /// <returns>List of projects</returns>
         [HttpGet]
-        public IEnumerable<string> List()
+        public IEnumerable<object> List()
         {
-            return this.projects.Value.Select(p => p.Name);
+            return this.projects.Value.Select(p => new { p.Name, p.Url });
         }
 
         /// <summary>
