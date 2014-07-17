@@ -16,6 +16,11 @@
         public string Branch { get; set; }
 
         /// <summary>
+        /// Build number
+        /// </summary>
+        public string Number { get; set; }
+
+        /// <summary>
         /// Build status from build server
         /// </summary>
         public BuildStatus Status { get; set; }

@@ -11,7 +11,13 @@ namespace FeatureDeploy.Test.Integration
 
         public ProjectTest()
         {
-            this.project = new Project("WebIntegrador", Helper.BuildServer.First(), Helper.VCSSource.First(), Helper.Deploy.First());
+            this.project = new Project
+            {
+                Name = "WebIntegrador",
+                BuildServer = Helper.BuildServer.First(),
+                VCS = Helper.VCSSource.First(),
+                DeployMethod = Helper.Deploy.First()
+            };
         }
 
         [TestMethod]

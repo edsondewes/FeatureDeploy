@@ -61,7 +61,11 @@
     <Compile Include="IBuildServer.cs" />
     <Compile Include="IDeploy.cs" />
     <Compile Include="IVCSSource.cs" />
+    <Compile Include="Modifiers\VariableResolvers\EnvironmentVariableResolver.cs" />
+    <Compile Include="Modifiers\IVariableResolver.cs" />
+    <Compile Include="Modifiers\StringResolver.cs" />
     <Compile Include="Project.cs" />
+    <Compile Include="ProjectLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VCS\GitHub.cs" />
   </ItemGroup>

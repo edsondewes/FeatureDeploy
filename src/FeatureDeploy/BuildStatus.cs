@@ -5,7 +5,7 @@
     /// </summary>
     public enum BuildStatus
     {
-        Success,
-        Fail
+        Success = 1,
+        Fail = 2
     }
 }

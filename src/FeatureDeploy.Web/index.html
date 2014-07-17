@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Feature Deploy</title>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style/site.css" />
+</head>
+<body>
+    <script id="featuresList" type="x-tmpl-mustache">
+        <article class="project">
+            <h1>
+                {{#url}}
+                    <a href="{{ url }}">{{ name }}</a>
+                {{/url}}
+                {{^url}}
+                {{ name }}
+                {{/url}}
+            </h1>
+            <div class="features">
+                <ul>
+                    {{#features}}
+                    <li class="feature" data-build="{{ data.Id }}">
+                        <button class="action deploy">Deploy</button>
+                        {{ data.Branch }}
+                        <span class="status {{ statusClass }}">{{ data.Number }}</span>
+                    </li>
+                    {{/features}}
+                </ul>
+            </div>
+        </article>
+    </script>
+
+    <script id="gifLoader" type="x-tmpl-mustache">
+        <div class="loading"></div>
+    </script>
+
+    <script id="lineMessage" type="x-tmpl-mustache">
+        <div class="alert">
+            <a href="#" class="close">Close</a>
+            <span class="text text-success">Deploy succeded</span>
+            <span class="text text-fail">Deploy failed</span>
+        </div>
+    </script>
+
+    <div class="page-loader"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/project.js"></script>
+</body>
+</html>
